@@ -1,4 +1,353 @@
+/* Global Styles */
 html {
   height: 100%;
   width: 100%;
+}
+
+body {
+  zoom: 200%;
+}
+
+@media screen and (max-width: 750px) {
+  body {
+    zoom: 100%;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  body {
+    zoom: 50%;
+  }
+}
+
+
+@media screen and (max-width: 170px) {
+  body {
+    zoom: 20%;
+  }
+}
+
+/* Header Styles */
+.header-container {
+  background-color: #fff;
+  color: #35434c;
+
+  height: 30px;
+  padding: 10px;
+  border-bottom: 2px solid #dbe1e4;
+  margin-top: -10px;
+
+  text-align: center;
+}
+
+.header-logo {
+  float: left;
+  color: #35434c;
+
+  margin-left: 10px;
+
+  font-family: monospace;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.header-logo a {
+  text-decoration: none;
+  color: #35434c;
+}
+
+.header-logo a:hover,
+.header-logo a:active {
+  text-decoration: none;
+  color: #d2445d;
+  background-color: #fff;
+}
+
+.header-nav {
+  float: right;
+  margin-right: 10px;
+  height: 30px;
+}
+
+.header-nav a {
+  font-family: monospace;
+  font-size: 15px;
+  color: #35434c;
+  text-decoration: none;
+  padding: 10px;
+  float: left;
+}
+
+.header-nav a:hover,
+.header-nav a:active {
+  background-color: #d2445d;
+  color: #fff;
+}
+
+.responsive-btn {
+  display: none;
+  font-family: monospace;
+  font-size: 20px;
+  padding: 10px;
+  color: #35434c;
+  text-decoration: none;
+  float: right;
+}
+
+@media screen and (max-width: 600px) {
+  .header-nav {
+    display: none;
+    float: none;
+    margin-right: 0px;
+    padding-top: 40px;
+  }
+
+  .responsive-btn {
+    display: block;
+  }
+
+  .header-nav a {
+    display: block;
+    float: none;
+  }
+}
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #c4cbd0;
+  font-family: monospace;
+  border-radius: 5px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #c4cbd0;
+}
+
+td a {
+  text-decoration: none;
+  color: #d2445d;
+}
+
+th {
+  background-color: #ffdee4;
+}
+
+/* Button and Form Styles */
+.feature {
+  float: right;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  margin-bottom: 15px;
+}
+
+.btn-add {
+  margin-left: 10px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #d2445d;
+  display: inline-block;
+  text-decoration: none;
+  font-family: monospace;
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  background-color: #e4284b;
+}
+
+.search-input {
+  padding: 8px;
+  border: 2px solid #dbe1e4;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-left: 10px;
+  width: 200px;
+  font-family: monospace;
+}
+
+.search-input:focus {
+  color: #d2445d;
+  outline-color: #d2445d;
+}
+
+@media screen and (max-width: 600px) {
+  /* align center of screen */
+  .feature {
+    float: none;
+    text-align: center;
+  }
+}
+
+/* Form Styles */
+.popup-form-add-book {
+  display: none;
+  border: 2px solid #dbe1e4;
+  width: 300px;
+  height: 335px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.popup-form-add-book input[type="text"] {
+  width: 245px;
+
+  border: 2px solid #dbe1e4;
+  border-radius: 5px;
+  padding: 10px;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 10px;
+
+  font-family: monospace;
+  display: block;
+}
+
+.popup-form-add-book input[type="text"]:focus {
+  color: #d2445d;
+  outline-color: #d2445d;
+}
+
+.popup-form-add-book select {
+  width: 270px;
+
+  border: 2px solid #dbe1e4;
+  border-radius: 5px;
+  padding: 10px;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 10px;
+
+  font-family: monospace;
+  display: block;
+}
+
+.popup-form-add-book label {
+  margin-left: 17px;
+  font-family: monospace;
+}
+
+.popup-form-add-book form h2 {
+  text-align: left;
+  margin-top: 10px;
+  margin-left: 16px;
+  margin-bottom: 30px;
+  font-family: monospace;
+}
+
+.btn-group {
+  float: right;
+}
+
+.form-container button {
+  display: block;
+  margin-right: 16px;
+  margin-top: 20px;
+  padding: 10px 16px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #d2445d;
+  display: block;
+  text-decoration: none;
+  font-family: monospace;
+  cursor: pointer;
+  float: left;
+  border: 2px solid #d2445d;
+}
+
+.form-container button:hover {
+  background-color: #e4284b;
+}
+
+.form-container button[type="submit"] {
+  background-color: #fff;
+  color: #d2445d;
+}
+
+.form-container button[type="submit"]:hover {
+  background-color: #d2445d;
+  color: #fff;
+}
+
+
+/* Delete Popup Styles */
+.popup-delete-book {
+  display: none;
+  border: 2px solid #dbe1e4;
+  width: 300px;
+  height: 180px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.popup-delete-book form h2 {
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 16px;
+  margin-bottom: 30px;
+  font-family: monospace;
+}
+
+.popup-delete-book form p {
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 30px;
+  font-family: monospace;
+}
+
+.popup-delete-book .form-container .btn-group-delete button {
+  margin-top: 5px;
+}
+
+.popup-delete-book .form-container .btn-group-delete button:hover {
+  background-color: #e4284b;
+}
+
+.popup-delete-book .form-container .btn-group-delete {
+  float: right;
+  margin-right: 15%;
+}
+
+
+/* popup background is the layer that separate popup with web background*/
+.popup-background {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4);
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.user-info {
+  float: right;
+  font-family: monospace;
+}
+
+.user-info img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  /* margin-right: 10px; */
+  border: 2px solid #dbe1e4;
+  background-color: #dbe1e4;
+}
+
+.user-info span {
+  font-family: monospace;
+  font-size: 15px;
+  color: #35434c;
+  padding: 10px;
+  float: right;
 }

@@ -1,14 +1,106 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Bookstore</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Bookstore</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
 
-  <body>
-    Hello world
-    <script src="script.js"></script>
-  </body>
+<body>
+  <script src="script.js"></script>
+
+  <!-- Header Bar that can change transparency when scrolling down -->
+  <div class="header">
+    <div class="header-container">
+      <div class="header-logo">
+        <a href="index.html">Bookstore</a>
+      </div>
+      <div class="user-info">
+        <img src="https://www.gstatic.com/android/keyboard/emojikitchen/20220406/u1f352/u1f352_u1f431.png?fbx"/>
+        <span>Bean</span>
+      </div>
+      <!-- <a class="responsive-btn" onclick="">&#9776;</a> -->
+      <div class="header-nav" id="header-nav-01">
+        <!-- Navigation links can be added here -->
+        <!-- <a href="index.html">Home</a> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="feature">
+    <!-- Search box -->
+    <input class="search-input" type="text" placeholder="Search..." oninput="searchBookByTitle(this.value)" />
+    <!-- Button to open a popup to add a book -->
+    <button class="btn-add" onclick="openAddBookPopup()">Add Book</button>
+  </div>
+
+  <!-- Table to display CMS content -->
+  <table id="books-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Author</th>
+        <th>Topic</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Sample data rows, you would typically populate this dynamically -->
+      <!-- <tr>
+        <td>Một ngày đi chợ mệt mỏi của tabi</td>
+        <td>Bean The Vo</td>
+        <td>Viễn tưởng mơ mộng</td>
+        <td>
+          <a href="#" class="btn">Edit</a>
+          <a href="#" class="btn" onclick="openDeleteBookPopup()">Delete</a>
+        </td>
+      </tr> -->
+      <!-- Add more rows as needed -->
+    </tbody>
+  </table>
+
+  <!-- Popup form to add a book -->
+  <div class="popup-background" id="add-book-popup-bg">
+    <div class="popup-form-add-book" id="add-book-popup">
+      <form action="" class="form-container">
+        <h2>Add Book</h2>
+
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Enter Name" id="add-book-title" required />
+
+        <label for="author"><b>Author</b></label>
+        <input type="text" placeholder="Enter Author" id="add-book-author" required />
+
+        <label for="topic"><b>Topic</b></label>
+        <select id="add-book-topic">
+          <option value="" disabled selected>Select an option</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Science">Science</option>
+          <option value="Others">Others</option>
+        </select>
+
+        <div class="btn-group">
+          <button type="submit" class="btn" onclick="submitNewBook()">Add</button>
+          <button type="button" class="btn-cancel" id="cancel-add-book-btn">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Popup form for deleting a row -->
+  <div class="popup-background" id="delete-book-popup-bg">
+    <div class="popup-delete-book" id="delete-book-popup">
+      <form action="" class="form-container">
+        <h2>Delete Book</h2>
+        <p id="delete-book-msg">Are you sure you want to delete this book?</p>
+        <div class="btn-group-delete">
+          <button type="submit" class="btn" id="delete-book-btn">Delete</button>
+          <button type="button" class="btn-cancel" id="cancel-delete-book-btn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
 </html>
