@@ -1,9 +1,16 @@
-import { Book, BooksWithPagination, Pagination } from './Model';
+import {
+  Book,
+  BooksWithPagination,
+  Pagination,
+} from './Model';
 
 export function getBooksFromLocalStorage(): Book[] {
-  const storedBooksString = localStorage.getItem('books');
-  const storedBooks = storedBooksString ? JSON.parse(storedBooksString) : [];
-  return Array.isArray(storedBooks) ? storedBooks : [];
+  if (typeof window !== 'undefined') {
+    const storedBooksString = localStorage.getItem('books');
+    const storedBooks = storedBooksString ? JSON.parse(storedBooksString) : [];
+    return Array.isArray(storedBooks) ? storedBooks : [];
+  }
+  return [];
 }
 
 export function findBookById(books: Book[], id: number): Book | undefined {
@@ -27,7 +34,9 @@ export function addBookToLocalStorage(book: Book): Book[] {
 }
 
 export function saveBooksToLocalStorage(books: Book[]) {
-  localStorage.setItem('books', JSON.stringify(books));
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('books', JSON.stringify(books));
+  }
 }
 
 export function findBookIndexById(books: Book[], id: number): number {
@@ -74,29 +83,47 @@ export function getBooksByPage(
 }
 
 export function retrievePaginationFromLocalStorage(): Pagination {
-  const storedPagination = localStorage.getItem('pagination');
-  const currentPagination = JSON.parse(storedPagination || '');
-  const pagination = currentPagination || {
+  if (typeof window !== 'undefined') {
+    const storedPagination = localStorage.getItem('pagination') || '{}';
+    let currentPagination = JSON.parse(storedPagination);
+    if (!currentPagination?.currentPage) {
+      currentPagination = {
+        currentPage: 1,
+        booksPerPage: 5,
+        totalBooks: 0,
+      };
+    }
+
+    const books = getBooksFromLocalStorage();
+
+    currentPagination.totalBooks = books.length;
+    return currentPagination;
+  }
+
+  return {
     currentPage: 1,
     booksPerPage: 5,
+    totalBooks: 0,
   };
-
-  const books = getBooksFromLocalStorage();
-
-  pagination.totalBooks = books.length;
-  return pagination;
 }
 
 export function storePaginationConfigToLocalStorage(pagination: Pagination) {
-  const books = getBooksFromLocalStorage();
-  pagination.totalBooks = books.length;
-  localStorage.setItem('pagination', JSON.stringify(pagination));
+  if (typeof window !== 'undefined') {
+    const books = getBooksFromLocalStorage();
+    pagination.totalBooks = books.length;
+    localStorage.setItem('pagination', JSON.stringify(pagination));
+  }
 }
 
 export function cacheTheme(theme: string) {
-  localStorage.setItem('theme', theme);
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('theme', theme);
+  }
 }
 
 export function retrieveTheme(): string {
-  return localStorage.getItem('theme') || 'light';
+  if (typeof window !== 'undefined') {
+    return localStorage.getItem('theme') || 'light';
+  }
+  return 'light';
 }
