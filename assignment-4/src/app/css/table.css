@@ -1,0 +1,34 @@
+/* Table Styles */
+table {
+  /* width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #c4cbd0;
+  font-family: monospace;
+  border-radius: 5px; */
+  @apply border-collapse font-[monospace] w-[100%] border-solid border-2 border-[#c4cbd0] rounded-md;
+}
+
+th,
+td {
+  /* padding: 10px;
+  text-align: left;
+  border: 1px solid #c4cbd0; */
+  @apply p-[10px] text-left border-solid border-[#c4cbd0] border-[1px];
+}
+
+td button, td a {
+  /* text-decoration: none;
+  color: #d2445d;
+  border: none;
+  background-color: #fff;
+  font-family: monospace; */
+  @apply no-underline text-[#d2445d] text-sm border-none bg-white font-[monospace];
+}
+
+.dark-theme td a {
+  background-color: #333333;
+}
+
+th {
+  background-color: #ffdee4;
+}

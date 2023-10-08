@@ -1,0 +1,27 @@
+#root {
+  @apply h-full w-full bg-white;
+}
+body {
+  @apply h-full w-full block m-0;
+}
+html {
+  @apply h-full w-full overflow-y-scroll min-h-full;
+}
+
+@media screen and (max-width: 750px) {
+  body {
+    zoom: 100%;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  body {
+    zoom: 50%;
+  }
+}
+
+@media screen and (max-width: 170px) {
+  body {
+    zoom: 20%;
+  }
+}

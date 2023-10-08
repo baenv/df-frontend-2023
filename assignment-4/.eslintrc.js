@@ -35,7 +35,9 @@ module.exports = {
       presets: [require.resolve('next/babel')],
     },
   },
-  rules: {},
+  rules: {
+    "@next/next/no-img-element": "off",
+  },
   overrides: [
     {
       files: ['**/*.ts?(x)', '**/*.js?(x)'],

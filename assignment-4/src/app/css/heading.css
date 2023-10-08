@@ -1,0 +1,51 @@
+/* Header Styles */
+.headerContainer {
+  /* background-color: #fff;
+  color: #35434c;
+  height: 30px;
+  padding: 10px;
+  border-bottom: 2px solid #dbe1e4;
+  margin-top: -10px;
+  text-align: center; */
+  @apply text-black text-center  h-[30px] p-[10px] m-[-10px] border-b-[2px] border-[#dbe1e4] border-solid;
+}
+
+.headerLogo {
+  /* float: left;
+  color: #35434c;
+  margin-left: 10px;
+  font-family: monospace;
+  font-size: 30px;
+  font-weight: bold; */
+  @apply float-left ml-[10px] font-[monospace] text-2xl font-bold;
+}
+
+.headerLogo a {
+  /* text-decoration: none;
+  color: #35434c; */
+  @apply text-rose-600 no-underline;
+}
+
+.headerLogo a:hover,
+.headerLogo a:active {
+  /* text-decoration: none;
+  color: #d2445d;
+  background-color: #fff; */
+  @apply text-rose-600 no-underline bg-white;
+}
+
+.headerNav {
+  /* float: right;
+  margin-right: 10px;
+  height: 30px; */
+  @apply float-right mr-[10px] h-[30px];
+}
+
+.headerContainer span {
+  /* font-family: monospace;
+  font-size: 15px;
+  color: #35434c;
+  padding: 10px;
+  float: right; */
+  @apply font-[monospace] text-sm text-black p-[10px] float-right;
+}
